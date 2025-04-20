@@ -1335,8 +1335,8 @@ canvas:not(#ribbon-canvas),
   --preloader-bg: #37474f;
   --preloader-color: #fff;
   --tab-border-color: #f0f0f0;
-  --tab-botton-bg: #f0f0f0;
-  --tab-botton-color: #1f2d3d;
+  --tab-botton-bg: $tab-botton-bg;
+  --tab-botton-color: $tab-botton-color;
   --tab-button-hover-bg: #dcdcdc;
   --tab-button-active-bg: #fff;
   --card-bg: #fff;

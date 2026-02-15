@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>PureWaf使用指南 | PureStream &amp; Marblue</title><meta name="author" content="Pure Stream"><meta name="copyright" content="Pure Stream"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="How to Use PureWaf?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PureWaf使用指南">
+<meta property="og:url" content="https://purestream108.github.io/project/2026/02/11/PureWaf%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="PureStream &amp; Marblue">
+<meta property="og:description" content="How to Use PureWaf?">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://purestream108.github.io/project/img/bqd.jpg">
+<meta property="article:published_time" content="2026-02-11T10:52:23.000Z">
+<meta property="article:modified_time" content="2026-02-15T08:29:57.768Z">
+<meta property="article:author" content="Pure Stream">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="PureWaf">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://purestream108.github.io/project/img/bqd.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PureWaf使用指南",
+  "url": "https://purestream108.github.io/project/2026/02/11/PureWaf%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/",
+  "image": "https://purestream108.github.io/project/img/bqd.jpg",
+  "datePublished": "2026-02-11T10:52:23.000Z",
+  "dateModified": "2026-02-15T08:29:57.768Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Pure Stream",
+      "url": "https://PureStream108.github.io/project"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/marblue.jpg"><link rel="canonical" href="https://purestream108.github.io/project/2026/02/11/PureWaf%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Pure Stream","link":"链接: ","source":"来源: PureStream & Marblue","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'PureWaf使用指南',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/lazy.gif" data-original="/img/purestream.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-heart"></i><span> Animation</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/bqd.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">PureStream &amp; Marblue</span></a><a class="nav-page-title" href="/"><span class="site-name">PureWaf使用指南</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-heart"></i><span> Animation</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">PureWaf使用指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-02-11T10:52:23.000Z" title="发表于 2026-02-11 18:52:23">2026-02-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-02-15T08:29:57.768Z" title="更新于 2026-02-15 16:29:57">2026-02-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Tool/">Tool</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="PureWaf"><a href="#PureWaf" class="headerlink" title="PureWaf"></a>PureWaf</h1><p>Tips：该项目仅用于教育和学习环节（比如说CTF），不得应用于其他任何恶意目的。如果该项目出现任何错误或您有任何建议，欢迎在issues中提出。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>CTF中，你是否会因为被像这样：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/wget|dir|nl|nc|cat|tail|more|flag|sh|cut|awk|strings|od|curl|ping|\\*|sort|zip|mod|sl|find|sed|cp|mv|ty|php|tee|txt|grep|base|fd|df|\\\\|more|cc|tac|less|head|\.|\&#123;|\&#125;|uniq|copy|%|file|xxd|date|\[|\]|flag|bash|env|!|\?|ls|\&#x27;|\&quot;|id/i&#x27;</span>,<span class="variable">$cmd</span>)) &#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;你传的参数似乎挺正经的,放你过去吧&lt;br&gt;&quot;</span>;</span><br><span class="line">	<span class="title function_ invoke__">system</span>(<span class="variable">$cmd</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;nonono,hacker!!!&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者是这样：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$comm1</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;comm1&#x27;</span>];</span><br><span class="line"><span class="variable">$comm2</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;comm2&#x27;</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/\&#x27;|\`|\\|\*|\n|\t|\xA0|\r|\&#123;|\&#125;|\(|\)|&lt;|\&amp;[^\d]|@|\||tail|bin|less|more|string|nl|pwd|cat|sh|flag|find|ls|grep|echo|w/is&quot;</span>, <span class="variable">$comm1</span>))</span><br><span class="line">    <span class="variable">$comm1</span> = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/\&#x27;|\&quot;|;|,|\`|\*|\\|\n|\t|\r|\xA0|\&#123;|\&#125;|\(|\)|&lt;|\&amp;[^\d]|@|\||ls|\||tail|more|cat|string|bin|less||tac|sh|flag|find|grep|echo|w/is&quot;</span>, <span class="variable">$comm2</span>))</span><br><span class="line">    <span class="variable">$comm2</span> = <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$flag</span> = <span class="string">&quot;#flag in /flag&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$comm1</span> = <span class="string">&#x27;&quot;&#x27;</span> . <span class="variable">$comm1</span> . <span class="string">&#x27;&quot;&#x27;</span>;</span><br><span class="line"><span class="variable">$comm2</span> = <span class="string">&#x27;&quot;&#x27;</span> . <span class="variable">$comm2</span> . <span class="string">&#x27;&quot;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$cmd</span> = <span class="string">&quot;file <span class="subst">$comm1</span> <span class="subst">$comm2</span>&quot;</span>;</span><br><span class="line"><span class="title function_ invoke__">system</span>(<span class="variable">$cmd</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>的恶心人的WAF所困扰？那么PureWaf就是为了一把梭掉这种Waf而诞生</p>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PureWaf</span><br></pre></td></tr></table></figure>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>1</p>
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><h3 id="waf-words"><a href="#waf-words" class="headerlink" title="waf_words"></a>waf_words</h3><ul>
+<li>waf_words<em>=</em>“”,</li>
+<li>waf_chars<em>=</em>“”,</li>
+<li>waf_regex<em>=</em>“”,</li>
+<li>limit_length<em>=</em>999999,</li>
+<li>flagfile<em>=</em>“/flag”,</li>
+<li>read_env<em>=</em>False,</li>
+<li>reflect_shell<em>=</em>False,</li>
+<li>port<em>=</em>8080,</li>
+<li>ip<em>=</em>“127.0.0.1”,</li>
+<li>phpinfo<em>=</em>False,</li>
+<li>log_level<em>=</em>“INFO”,</li>
+<li>total_payload<em>=</em>False,</li>
+<li>phpv<em>=</em>7.0,</li>
+</ul>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Web/">Web</a><a class="post-meta__tags" href="/tags/PureWaf/">PureWaf</a></div><div class="post-share"><div class="social-share" data-image="/img/bqd.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/02/11/HGame2026-Web/" title="HGame2026 Web"><img class="cover" src="/img/lazy.gif" data-original="/img/robin2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">HGame2026 Web</div></div><div class="info-2"><div class="info-item-1">HGame2026 Web</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/05/31/Web%E5%9F%BA%E7%A1%80-1/" title="CTF·Web基础"><img class="cover" src="/img/lazy.gif" data-original="/img/l1.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-31</div><div class="info-item-2">CTF·Web基础</div></div><div class="info-2"><div class="info-item-1">Welcome to Web!</div></div></div></a><a class="pagination-related" href="/2026/02/11/HGame2026-Web/" title="HGame2026 Web"><img class="cover" src="/img/lazy.gif" data-original="/img/robin2.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-02-11</div><div class="info-item-2">HGame2026 Web</div></div><div class="info-2"><div class="info-item-1">HGame2026 Web</div></div></div></a><a class="pagination-related" href="/2025/12/11/DasCTF2025%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%B5%9B/" title="DasCTF2025下半年赛"><img class="cover" src="/img/lazy.gif" data-original="/img/hsr.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-11</div><div class="info-item-2">DasCTF2025下半年赛</div></div><div class="info-2"><div class="info-item-1">DASCTF 2025下半年赛｜矩阵博弈，零度突围</div></div></div></a><a class="pagination-related" href="/2025/12/06/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982025-Web/" title="极客大挑战2025 Web"><img class="cover" src="/img/lazy.gif" data-original="/img/chuyin1.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-06</div><div class="info-item-2">极客大挑战2025 Web</div></div><div class="info-2"><div class="info-item-1">极客大挑战2025复现</div></div></div></a><a class="pagination-related" href="/2025/11/25/XSLeaks/" title="XSLeaks"><img class="cover" src="/img/lazy.gif" data-original="/img/se1.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-25</div><div class="info-item-2">XSLeaks</div></div><div class="info-2"><div class="info-item-1">XSLeaks拖了好久以至于我都忘了，刚好最近不知道学什么了就来回填个坑 前置参考文章： 引言 |XS-Leaks 维基 最有趣的前端旁路攻擊：XSLeaks（上） | Beyond XSS 跨站泄露 (XS-Leaks) - 安全 | MDN - MDN 文档 XSLeaks 技术利用-先知社区 nctf 2025 web wp - LamentXU - 博客园 NCTF2024/Web/internal_api at main · X1cT34m/NCTF2024 侧信道攻击要想理解XSLeaks，就先了解一下什么是 侧信道攻击（side-channel attack） ，也就是旁路攻击，顾名思义，就是旁敲侧击的知道信息，比如著名的灯泡问题，就是有两个房间，房间之间有门阻隔，然后你所在的房间有3个开关，可以随机开关，对面房间有3个灯泡，现在要求通过开关这几个开关，接着只有一次机会够进入另一个房间再回来，要求回来之后要回答这三个灯泡分别对应哪个，仔细想想，如果是两个灯泡的话，当然只需要开一个开关被可以知道分别对应什么了，但是三个灯泡呢？ 我们可以先打开一个开关10分钟，然后关掉...</div></div></div></a><a class="pagination-related" href="/2025/08/25/0xGame2025-Official-Web/" title="0xGame2025 Official Web"><img class="cover" src="/img/lazy.gif" data-original="/img/hsr1.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-25</div><div class="info-item-2">0xGame2025 Official Web</div></div><div class="info-2"><div class="info-item-1">0xGame2025 Web</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/lazy.gif" data-original="/img/purestream.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Pure Stream</div><div class="author-info-description">X1cT34m & Web</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.cnblogs.com/LAMENTXU"><i class="fab fa-github"></i><span>支持LMTX喵</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.mihoyo.com/" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">推：知更鸟，芙宁娜，夏洛蒂，春日野穹，星（崩铁），希儿（崩铁），三无Marblue，朔夜观星，遐蝶，浮波柚叶，二阶堂希罗</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PureWaf"><span class="toc-number">1.</span> <span class="toc-text">PureWaf</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="toc-number">1.2.</span> <span class="toc-text">快速开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.3.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-number">1.4.</span> <span class="toc-text">参数说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#waf-words"><span class="toc-number">1.4.1.</span> <span class="toc-text">waf_words</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/02/11/PureWaf%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="PureWaf使用指南"><img src="/img/lazy.gif" data-original="/img/bqd.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PureWaf使用指南"/></a><div class="content"><a class="title" href="/2026/02/11/PureWaf%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="PureWaf使用指南">PureWaf使用指南</a><time datetime="2026-02-11T10:52:23.000Z" title="发表于 2026-02-11 18:52:23">2026-02-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/11/HGame2026-Web/" title="HGame2026 Web"><img src="/img/lazy.gif" data-original="/img/robin2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HGame2026 Web"/></a><div class="content"><a class="title" href="/2026/02/11/HGame2026-Web/" title="HGame2026 Web">HGame2026 Web</a><time datetime="2026-02-11T09:52:14.000Z" title="发表于 2026-02-11 17:52:14">2026-02-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/30/2025%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" title="2025年度总结"><img src="/img/lazy.gif" data-original="/img/20251.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2025年度总结"/></a><div class="content"><a class="title" href="/2025/12/30/2025%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" title="2025年度总结">2025年度总结</a><time datetime="2025-12-30T02:08:25.000Z" title="发表于 2025-12-30 10:08:25">2025-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/11/DasCTF2025%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%B5%9B/" title="DasCTF2025下半年赛"><img src="/img/lazy.gif" data-original="/img/hsr.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DasCTF2025下半年赛"/></a><div class="content"><a class="title" href="/2025/12/11/DasCTF2025%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%B5%9B/" title="DasCTF2025下半年赛">DasCTF2025下半年赛</a><time datetime="2025-12-11T10:43:57.000Z" title="发表于 2025-12-11 18:43:57">2025-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/06/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982025-Web/" title="极客大挑战2025 Web"><img src="/img/lazy.gif" data-original="/img/chuyin1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="极客大挑战2025 Web"/></a><div class="content"><a class="title" href="/2025/12/06/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982025-Web/" title="极客大挑战2025 Web">极客大挑战2025 Web</a><time datetime="2025-12-06T11:52:11.000Z" title="发表于 2025-12-06 19:52:11">2025-12-06</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Pure Stream</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0-b1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="CTF,Web,miHoYo,PureStream,Marblue" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body></html>
